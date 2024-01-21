@@ -6,10 +6,10 @@
 #include <vector>
 
 struct GL_Vertex {
-	glm::uvec3 position;
-	glm::uvec3 normal;
-	glm::uvec3 color;
-	glm::uvec2 texUV;
+	glm::vec3 position;
+	glm::vec3 normal;
+	glm::vec3 color;
+	glm::vec2 texUV;
 };
 
 class GL_VBO {
@@ -18,8 +18,7 @@ protected:
 
 public:
 	GL_VBO(
-		GLfloat* vertices, 
-		GLsizeiptr size
+		std::vector<GL_Vertex>& vertices
 	);
 
 	void Bind();

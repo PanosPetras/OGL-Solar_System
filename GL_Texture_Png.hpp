@@ -12,11 +12,11 @@ protected:
 	GLuint unit;
 
 public:
-	GLenum type;
+	std::string type;
 
 	GL_Texture_Png(
 		std::string image,
-		GLenum texType,
+		std::string texType,
 		GLuint slot,
 		GLenum format,
 		GLenum pixelType
