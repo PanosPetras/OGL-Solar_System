@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{5601e50f-080d-4538-949b-f3e9f44a6ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Header Files">
+      <UniqueIdentifier>{ad8d6324-d821-460a-b70d-2b7edd3acef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Source Files">
+      <UniqueIdentifier>{d0fc8ea1-fd9e-42fd-ab36-12108c282626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{96c06be6-2f6b-446d-884f-4cb46c48cc54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Header Files">
+      <UniqueIdentifier>{d79dda14-197e-4ee8-a279-6826879ace48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Source Files">
+      <UniqueIdentifier>{c3621318-5516-49a2-9a0f-18da32607969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation">
+      <UniqueIdentifier>{75f2c292-8aa6-4e02-8c83-0fa850c7a31a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Header Files">
+      <UniqueIdentifier>{6573e17f-79ea-4cd2-8637-73fb65a683e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Source Files">
+      <UniqueIdentifier>{72533cf6-c47d-4891-b539-7d2733af8cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6abed367-29b9-4595-8b66-6c70e6ddb376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{b64e4ca8-e1ff-49bb-adb7-073a3c53b0a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{02412119-ca79-4d6a-8f13-abbc842fb7e3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CelestialBody.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Init.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Window.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Simulation\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moon.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Shader.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_VBO.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_EBO.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_VAO.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Texture_Png.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Camera.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Mesh.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GL_Init.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Window.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.hpp">
+      <Filter>Simulation\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SolarSystem.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sun.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Earth.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Shader.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_VBO.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_EBO.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_VAO.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Texture_Png.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Camera.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Mesh.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="default.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="light.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="light.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pop_cat.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="brick.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="planksSpec.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="planks.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
