@@ -10,8 +10,7 @@ protected:
 
 public:
 	GL_EBO(
-		GLuint* indices, 
-		GLsizeiptr size
+		std::vector<GLuint> indices
 	);
 
 	void Bind();

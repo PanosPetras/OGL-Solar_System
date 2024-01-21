@@ -2,8 +2,8 @@
 #include "MainWindow.hpp"
 
 void createMainWindow() {
-    //MainWindow window(1280, 720);
-    MainWindow window(800, 800);
+    MainWindow window(1280, 720);
+    //MainWindow window(800, 800);
 
     window.mainLoop();
 }

@@ -18,7 +18,7 @@ GL_Window::GL_Window(
 
     gladLoadGL();
 
-    glViewport(0, 0, 800, 800);
+    glViewport(0, 0, width, height);
 }
 
 GL_Window::~GL_Window() {

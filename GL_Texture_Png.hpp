@@ -8,15 +8,15 @@
 
 class GL_Texture_Png {
 protected:
-	GLuint id;
 	GLuint unit;
 
 public:
-	GLenum type;
+	GLuint id;
+	std::string type;
 
 	GL_Texture_Png(
 		std::string image,
-		GLenum texType,
+		std::string texType,
 		GLuint slot,
 		GLenum format,
 		GLenum pixelType

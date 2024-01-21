@@ -1,12 +1,11 @@
 #include "GL_VBO.hpp"
 
 GL_VBO::GL_VBO(
-	GLfloat* vertices, 
-	GLsizeiptr size
+	std::vector<GL_Vertex>& vertices
 ) {
 	glGenBuffers(1, &id);
 	glBindBuffer(GL_ARRAY_BUFFER, id);
-	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(GL_Vertex), vertices.data(), GL_STATIC_DRAW);
 }
 
 void GL_VBO::Bind() {

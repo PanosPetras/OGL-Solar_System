@@ -12,9 +12,8 @@
 #include "GL_Shader.hpp"
 
 class GL_Camera {
-public:
+protected:
 	// Stores the main vectors of the camera
-	glm::vec3 Position;
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::mat4 cameraMatrix = glm::mat4(1.0f);
@@ -30,6 +29,9 @@ public:
 	float speed = 0.1f;
 	float sensitivity = 100.0f;
 
+public:
+	glm::vec3 Position;
+
 	// Camera constructor to set up initial values
 	GL_Camera(
 		int width, 
@@ -38,10 +40,19 @@ public:
 	);
 
 	// Updates the camera matrix to the Vertex Shader
-	void updateMatrix(float FOVdeg, float nearPlane, float farPlane);
+	void updateMatrix(
+		float FOVdeg, 
+		float nearPlane, 
+		float farPlane
+	);
 	// Exports the camera matrix to a shader
-	void Matrix(GL_Shader& shader, const char* uniform);
+	void Matrix(
+		GL_Shader& shader, 
+		const char* uniform
+	);
 	// Handles camera inputs
-	void Inputs(GLFWwindow* window);
+	void Inputs(
+		GLFWwindow* window
+	);
 };
 #endif

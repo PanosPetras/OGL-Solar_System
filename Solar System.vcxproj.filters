@@ -91,6 +91,9 @@
     <ClCompile Include="GL_Mesh.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GL_Model.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL_Init.hpp">
@@ -133,6 +136,9 @@
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GL_Mesh.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Model.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

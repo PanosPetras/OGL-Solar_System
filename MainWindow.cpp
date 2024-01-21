@@ -5,12 +5,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "GL_Shader.hpp"
-#include "GL_VAO.hpp"
-#include "GL_VBO.hpp"
-#include "GL_EBO.hpp"
-#include "GL_Camera.hpp"
-#include "GL_Texture_Png.hpp"
+#include "GL_Model.hpp"
 
 void MainWindow::handleKeyboardInput(
     GLFWwindow* window,
@@ -38,17 +33,16 @@ MainWindow::MainWindow(
 width(width), 
 height(height) {
     isPaused = false;
-    //window.setKeyCallback();
 }
 
 void MainWindow::draw() {
 	// Vertices coordinates
-	GLfloat vertices[] =
-	{ //     COORDINATES     /        COLORS        /    TexCoord    /       NORMALS     //
-		-1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
-		-1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-		 1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-		 1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 0.0f,		0.0f, 1.0f, 0.0f
+	GL_Vertex vertices[] =
+	{ //               COORDINATES           /            COLORS          /           NORMALS         /       TEXTURE COORDINATES    //
+		GL_Vertex{glm::vec3(-1.0f, 0.0f,  1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(0.0f, 0.0f)},
+		GL_Vertex{glm::vec3(-1.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(0.0f, 1.0f)},
+		GL_Vertex{glm::vec3(1.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(1.0f, 1.0f)},
+		GL_Vertex{glm::vec3(1.0f, 0.0f,  1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(1.0f, 0.0f)}
 	};
 
 	// Indices for vertices order
@@ -58,16 +52,16 @@ void MainWindow::draw() {
 		0, 2, 3
 	};
 
-	GLfloat lightVertices[] =
+	GL_Vertex lightVertices[] =
 	{ //     COORDINATES     //
-		-0.1f, -0.1f,  0.1f,
-		-0.1f, -0.1f, -0.1f,
-		 0.1f, -0.1f, -0.1f,
-		 0.1f, -0.1f,  0.1f,
-		-0.1f,  0.1f,  0.1f,
-		-0.1f,  0.1f, -0.1f,
-		 0.1f,  0.1f, -0.1f,
-		 0.1f,  0.1f,  0.1f
+		GL_Vertex{glm::vec3(-0.1f, -0.1f,  0.1f)},
+		GL_Vertex{glm::vec3(-0.1f, -0.1f, -0.1f)},
+		GL_Vertex{glm::vec3(0.1f, -0.1f, -0.1f)},
+		GL_Vertex{glm::vec3(0.1f, -0.1f,  0.1f)},
+		GL_Vertex{glm::vec3(-0.1f,  0.1f,  0.1f)},
+		GL_Vertex{glm::vec3(-0.1f,  0.1f, -0.1f)},
+		GL_Vertex{glm::vec3(0.1f,  0.1f, -0.1f)},
+		GL_Vertex{glm::vec3(0.1f,  0.1f,  0.1f)}
 	};
 
 	GLuint lightIndices[] =
@@ -84,71 +78,69 @@ void MainWindow::draw() {
 		1, 4, 0,
 		4, 5, 6,
 		4, 6, 7
+	}; 
+	
+	GL_Texture_Png textures[]
+	{
+		GL_Texture_Png("planks.png", "diffuse", 0, GL_RGBA, GL_UNSIGNED_BYTE),
+		GL_Texture_Png("planksSpec.png", "specular", 1, GL_RED, GL_UNSIGNED_BYTE)
 	};
 
 	GL_Shader shader(
 		"default.vert", 
 		"default.frag"
 	);
-	GL_VAO VAO1;
-	VAO1.Bind();
-	// Generates Vertex Buffer Object and links it to vertices
-	GL_VBO VBO1(vertices, sizeof(vertices));
-	// Generates Element Buffer Object and links it to indices
-	GL_EBO EBO1(indices, sizeof(indices));
-	// Links VBO attributes such as coordinates and colors to VAO
-	VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
-	VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
-	VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));
-	VAO1.LinkAttrib(VBO1, 3, 3, GL_FLOAT, 11 * sizeof(float), (void*)(8 * sizeof(float)));
-	// Unbind all to prevent accidentally modifying them
-	VAO1.Unbind();
-	VBO1.Unbind();
-	EBO1.Unbind();
+	// Store mesh data in vectors for the mesh
+	std::vector <GL_Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(GL_Vertex));
+	std::vector <GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
+	std::vector <GL_Texture_Png> tex(textures, textures + sizeof(textures) / sizeof(GL_Texture_Png));
+	// Create floor mesh
+	GL_Mesh floor(verts, ind, tex);
+
+	GL_Model sun(R"(C:\Users\ppetr\source\repos\Solar System\Models\sun\sun.obj)");
+	GL_Model earth(R"(C:\Users\ppetr\source\repos\Solar System\Models\earth\Earth.obj)");
+	//GL_Model moon(R"(C:\Users\ppetr\source\repos\Solar System\Models\moon\Moon.obj)");
+	//GL_Model mars(R"(C:\Users\ppetr\source\repos\Solar System\Models\planet\planet.obj)");
 
 	GL_Shader lightShader(
 		"light.vert", 
 		"light.frag"
 	);
-	GL_VAO lightVAO;
-	lightVAO.Bind();
-	// Generates Vertex Buffer Object and links it to vertices
-	GL_VBO lightVBO(lightVertices, sizeof(lightVertices));
-	// Generates Element Buffer Object and links it to indices
-	GL_EBO lightEBO(lightIndices, sizeof(lightIndices));
-	// Links VBO attributes such as coordinates and colors to VAO
-	lightVAO.LinkAttrib(lightVBO, 0, 3, GL_FLOAT, 3 * sizeof(float), (void*)0);
-	// Unbind all to prevent accidentally modifying them
-	lightVAO.Unbind();
-	lightVBO.Unbind();
-	lightEBO.Unbind();
+	// Store mesh data in vectors for the mesh
+	std::vector <GL_Vertex> lightVerts(lightVertices, lightVertices + sizeof(lightVertices) / sizeof(GL_Vertex));
+	std::vector <GLuint> lightInd(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));
+	// Create light mesh
+	GL_Mesh light(lightVerts, lightInd, tex);
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
+	glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
-	glm::vec3 objectPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	/*glm::vec3 objectPos = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::mat4 objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, objectPos);
+	objectModel = glm::translate(objectModel, objectPos);*/
+
+	glm::vec3 earthPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::mat4 earthModel = glm::mat4(0.1f);
+	earthModel = glm::translate(earthModel, earthPos);
+
+	glm::vec3 sunPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::mat4 sunModel = glm::mat4(1.0f);
+	sunModel = glm::translate(sunModel, sunPos);
 
 	lightShader.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(lightShader.id, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
 	glUniform4f(glGetUniformLocation(lightShader.id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 
 	shader.Activate();
-	glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 1, GL_FALSE, glm::value_ptr(objectModel));
+	//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 1, GL_FALSE, glm::value_ptr(sunModel));
 	glUniform4f(glGetUniformLocation(shader.id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	glUniform3f(glGetUniformLocation(shader.id, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
-	GL_Texture_Png planksTex("planks.png", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
-	planksTex.texUnit(shader, "tex0", 0);
-	GL_Texture_Png planksSpec("planksSpec.png", GL_TEXTURE_2D, 1, GL_RED, GL_UNSIGNED_BYTE);
-	planksSpec.texUnit(shader, "tex1", 1);
-
 	glEnable(GL_DEPTH_TEST);
 
-	GL_Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+	GL_Camera camera(width, height, glm::vec3(0.0f, 0.0f, 0.0f));
 
 	// Main while loop
 	while (!window.shouldClose()) {
@@ -161,27 +153,14 @@ void MainWindow::draw() {
 		// Updates and exports the camera matrix to the Vertex Shader
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
 
-		shader.Activate();
-		// Exports the camera Position to the Fragment Shader for specular lighting
-		glUniform3f(glGetUniformLocation(shader.id, "camPos"), camera.Position.x, camera.Position.y, camera.Position.z);
-		// Export the camMatrix to the Vertex Shader of the pyramid
-		camera.Matrix(shader, "camMatrix");
-		// Binds textures so that they appear in the rendering
-		planksTex.Bind();
-		planksSpec.Bind();
-		// Bind the VAO so OpenGL knows to use it
-		VAO1.Bind();
-		// Draw primitives, number of indices, datatype of indices, index of indices
-		glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
-
-		// Tells OpenGL which Shader Program we want to use
-		lightShader.Activate();
-		// Export the camMatrix to the Vertex Shader of the light cube
-		camera.Matrix(lightShader, "camMatrix");
-		// Bind the VAO so OpenGL knows to use it
-		lightVAO.Bind();
-		// Draw primitives, number of indices, datatype of indices, index of indices
-		glDrawElements(GL_TRIANGLES, sizeof(lightIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 1, GL_FALSE, glm::value_ptr(sunModel));
+		sun.Draw(shader, camera, sunModel);
+		//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 2, GL_FALSE, glm::value_ptr(earthModel));
+		earth.Draw(shader, camera, earthModel);
+		//moon.Draw(shader, camera);
+		//mars.Draw(shader, camera);
+		floor.Draw(shader, camera, sunModel);
+		light.Draw(lightShader, camera, lightModel);
 
 		// Swap the back buffer with the front buffer
 		window.swapBuffers();
@@ -191,15 +170,7 @@ void MainWindow::draw() {
 	}
 
 	// Delete all the objects we've created
-	VAO1.Delete();
-	VBO1.Delete();
-	EBO1.Delete();
-	planksTex.Delete();
-	planksSpec.Delete();
 	shader.Delete();
-	lightVAO.Delete();
-	lightVBO.Delete();
-	lightEBO.Delete();
 	lightShader.Delete();
 }
 

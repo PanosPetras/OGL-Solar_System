@@ -112,7 +112,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)/Linking/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,7 +133,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)/Linking/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -143,6 +143,7 @@
     <ClCompile Include="GL_EBO.cpp" />
     <ClCompile Include="GL_Init.cpp" />
     <ClCompile Include="GL_Mesh.cpp" />
+    <ClCompile Include="GL_Model.cpp" />
     <ClCompile Include="GL_Shader.cpp" />
     <ClCompile Include="GL_Texture_Png.cpp" />
     <ClCompile Include="GL_VAO.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="GL_Camera.hpp" />
     <ClInclude Include="GL_EBO.hpp" />
     <ClInclude Include="GL_Mesh.hpp" />
+    <ClInclude Include="GL_Model.hpp" />
     <ClInclude Include="GL_Shader.hpp" />
     <ClInclude Include="GL_Texture_Png.hpp" />
     <ClInclude Include="GL_VAO.hpp" />
