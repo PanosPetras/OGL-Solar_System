@@ -1,3 +1,6 @@
+#ifndef planet_hpp
+#define planet_hpp
+
 #include "Star.hpp"
 #include <string>
 
@@ -10,6 +13,9 @@ public:
 	Planet(
 		Star &parentStar,
 		float orbitRadius,
-		std::string model
+		std::string model,
+		float revolutions
 	);
 };
+
+#endif

@@ -15,7 +15,7 @@ void GL_Model::loadModel(
 		return;
 	}
 
-	int lastBackslash = path.find_last_of("\\");
+	size_t lastBackslash = path.find_last_of("\\");
 	directory = path.substr(0, lastBackslash + 1);
 	processNode(scene->mRootNode, scene);
 }
@@ -114,7 +114,7 @@ GL_Model::GL_Model(
 
 void GL_Model::Draw(
 	GL_Shader& shader,
-	GL_Camera camera,
+	GL_Camera& camera,
 	glm::mat4& transform
 ) {
 	for(GL_Mesh& mesh : meshes) {

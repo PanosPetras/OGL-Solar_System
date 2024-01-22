@@ -46,9 +46,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CelestialBody.hpp">
-      <Filter>Entities\Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="GL_Init.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
@@ -60,12 +57,6 @@
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Planet.hpp">
-      <Filter>Entities\Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Moon.hpp">
-      <Filter>Entities\Header Files</Filter>
     </ClCompile>
     <ClCompile Include="GL_Shader.cpp">
       <Filter>OpenGL\Source Files</Filter>
@@ -93,6 +84,33 @@
     </ClCompile>
     <ClCompile Include="GL_Model.cpp">
       <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CelestialBody.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Earth.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sun.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolarSystem.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moon.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mars.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C.cpp">
+      <Filter>Entities\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +158,21 @@
     </ClInclude>
     <ClInclude Include="GL_Model.hpp">
       <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CelestialBody.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mars.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moon.hpp">
+      <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

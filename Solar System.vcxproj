@@ -137,7 +137,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CelestialBody.hpp" />
+    <ClCompile Include="C.cpp" />
+    <ClCompile Include="CelestialBody.cpp" />
+    <ClCompile Include="Mars.cpp" />
+    <ClCompile Include="Moon.cpp" />
+    <ClCompile Include="SolarSystem.cpp" />
+    <ClCompile Include="Sun.cpp" />
+    <ClInclude Include="C.hpp" />
+    <ClInclude Include="CelestialBody.hpp" />
+    <ClCompile Include="Earth.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="GL_Camera.cpp" />
     <ClCompile Include="GL_EBO.cpp" />
@@ -151,8 +159,11 @@
     <ClCompile Include="GL_Window.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="Moon.hpp" />
-    <ClCompile Include="Planet.hpp" />
+    <ClInclude Include="Moon.hpp" />
+    <ClCompile Include="Planet.cpp" />
+    <ClInclude Include="Mars.hpp" />
+    <ClInclude Include="Planet.hpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClInclude Include="GL_Camera.hpp" />
     <ClInclude Include="GL_EBO.hpp" />

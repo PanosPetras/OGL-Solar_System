@@ -1,17 +1,15 @@
-#ifndef earth_hpp
-#define earth_hpp
+#ifndef mars_hpp
+#define mars_hpp
 
 #include "Planet.hpp"
 #include "Sun.hpp"
 
-class Earth: public Planet {
+class Mars : public Planet {
 protected:
 	glm::mat4 getTransformation();
 
-	friend class Moon;
-
 public:
-	Earth(
+	Mars(
 		Sun& parentStar
 	);
 };

@@ -9,7 +9,7 @@ void GL_VAO::LinkAttrib(
 	GLuint layout,
 	GLuint numComponents,
 	GLenum type,
-	GLsizeiptr stride,
+	GLsizei stride,
 	void* offset
 ) {
 	vbo.Bind();

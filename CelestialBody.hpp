@@ -1,13 +1,17 @@
-#ifndef celestialBody_hpp
-#define celestialBody_hpp
+#ifndef celestial_body_hpp
+#define celestial_body_hpp
 
-#include "Point3D.hpp"
+#include "GL_Model.hpp"
 #include <string>
 
 class CelestialBody {
 protected:
 	float revolutions;
-	//Mesh *mesh;
+	GL_Model model;
+
+	virtual glm::mat4 getTransformation() = 0;
+
+	inline static int tick = 0;
 
 public:
 	CelestialBody(
@@ -16,8 +20,12 @@ public:
 	);
 	~CelestialBody();
 
-	virtual Point3D getPosition() = 0;
-	/*virtual Mesh getModel() = 0; */
+	void Draw(
+		GL_Shader& shader,
+		GL_Camera& camera
+	);
+
+	static void Tick();
 };
 
 #endif

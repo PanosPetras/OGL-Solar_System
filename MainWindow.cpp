@@ -6,6 +6,7 @@
 #include "glm/gtc/type_ptr.hpp"
 
 #include "GL_Model.hpp"
+#include "SolarSystem.hpp"
 
 void MainWindow::handleKeyboardInput(
     GLFWwindow* window,
@@ -36,22 +37,6 @@ height(height) {
 }
 
 void MainWindow::draw() {
-	// Vertices coordinates
-	GL_Vertex vertices[] =
-	{ //               COORDINATES           /            COLORS          /           NORMALS         /       TEXTURE COORDINATES    //
-		GL_Vertex{glm::vec3(-1.0f, 0.0f,  1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(0.0f, 0.0f)},
-		GL_Vertex{glm::vec3(-1.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(0.0f, 1.0f)},
-		GL_Vertex{glm::vec3(1.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(1.0f, 1.0f)},
-		GL_Vertex{glm::vec3(1.0f, 0.0f,  1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), glm::vec2(1.0f, 0.0f)}
-	};
-
-	// Indices for vertices order
-	GLuint indices[] =
-	{
-		0, 1, 2,
-		0, 2, 3
-	};
-
 	GL_Vertex lightVertices[] =
 	{ //     COORDINATES     //
 		GL_Vertex{glm::vec3(-0.1f, -0.1f,  0.1f)},
@@ -90,17 +75,6 @@ void MainWindow::draw() {
 		"default.vert", 
 		"default.frag"
 	);
-	// Store mesh data in vectors for the mesh
-	std::vector <GL_Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(GL_Vertex));
-	std::vector <GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
-	std::vector <GL_Texture_Png> tex(textures, textures + sizeof(textures) / sizeof(GL_Texture_Png));
-	// Create floor mesh
-	GL_Mesh floor(verts, ind, tex);
-
-	GL_Model sun(R"(C:\Users\ppetr\source\repos\Solar System\Models\sun\sun.obj)");
-	GL_Model earth(R"(C:\Users\ppetr\source\repos\Solar System\Models\earth\Earth.obj)");
-	//GL_Model moon(R"(C:\Users\ppetr\source\repos\Solar System\Models\moon\Moon.obj)");
-	//GL_Model mars(R"(C:\Users\ppetr\source\repos\Solar System\Models\planet\planet.obj)");
 
 	GL_Shader lightShader(
 		"light.vert", 
@@ -109,21 +83,16 @@ void MainWindow::draw() {
 	// Store mesh data in vectors for the mesh
 	std::vector <GL_Vertex> lightVerts(lightVertices, lightVertices + sizeof(lightVertices) / sizeof(GL_Vertex));
 	std::vector <GLuint> lightInd(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));
+	std::vector <GL_Texture_Png> tex(textures, textures + sizeof(textures) / sizeof(GL_Texture_Png));
 	// Create light mesh
 	GL_Mesh light(lightVerts, lightInd, tex);
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 lightPos = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
-	/*glm::vec3 objectPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::mat4 objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, objectPos);*/
-
-	glm::vec3 earthPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::mat4 earthModel = glm::mat4(0.1f);
-	earthModel = glm::translate(earthModel, earthPos);
+	SolarSystem ss;
 
 	glm::vec3 sunPos = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::mat4 sunModel = glm::mat4(1.0f);
@@ -134,18 +103,19 @@ void MainWindow::draw() {
 	glUniform4f(glGetUniformLocation(lightShader.id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 
 	shader.Activate();
-	//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 1, GL_FALSE, glm::value_ptr(sunModel));
 	glUniform4f(glGetUniformLocation(shader.id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	glUniform3f(glGetUniformLocation(shader.id, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
 	glEnable(GL_DEPTH_TEST);
 
-	GL_Camera camera(width, height, glm::vec3(0.0f, 0.0f, 0.0f));
+	GL_Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+
+	double then = glfwGetTime(), now;
 
 	// Main while loop
 	while (!window.shouldClose()) {
 		// Specify the color of the background
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		// Clean the back buffer and assign the new color to it
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -153,13 +123,7 @@ void MainWindow::draw() {
 		// Updates and exports the camera matrix to the Vertex Shader
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
 
-		//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 1, GL_FALSE, glm::value_ptr(sunModel));
-		sun.Draw(shader, camera, sunModel);
-		//glUniformMatrix4fv(glGetUniformLocation(shader.id, "model"), 2, GL_FALSE, glm::value_ptr(earthModel));
-		earth.Draw(shader, camera, earthModel);
-		//moon.Draw(shader, camera);
-		//mars.Draw(shader, camera);
-		floor.Draw(shader, camera, sunModel);
+		ss.Draw(shader, camera);
 		light.Draw(lightShader, camera, lightModel);
 
 		// Swap the back buffer with the front buffer
@@ -167,6 +131,13 @@ void MainWindow::draw() {
 
 		// Take care of all GLFW events
 		glfwPollEvents();
+
+		now = glfwGetTime();
+		if (now - then >= 2.0 / 60) {
+			ss.Tick();
+
+			then = now;
+		}
 	}
 
 	// Delete all the objects we've created

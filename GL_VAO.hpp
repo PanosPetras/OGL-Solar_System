@@ -16,7 +16,7 @@ public:
 		GLuint layout,
 		GLuint numComponents, 
 		GLenum type,
-		GLsizeiptr stride,
+		GLsizei stride,
 		void* offset
 	);
 

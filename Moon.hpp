@@ -1,16 +1,18 @@
 #ifndef moon_hpp
 #define moon_hpp
-#include "Planet.hpp"
+
+#include "Earth.hpp"
 
 class Moon : public CelestialBody {
 protected:
-	Planet& parentPlanet;
+	Earth& parentPlanet;
+	float orbitRadius;
+
+	glm::mat4 getTransformation();
 
 public:
 	Moon(
-		Planet& parentPlanet,
-		float orbitRadius,
-		std::string model
+		Earth& parentPlanet
 	);
 };
 

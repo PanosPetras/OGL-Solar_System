@@ -33,7 +33,7 @@ public:
 
     void Draw(
         GL_Shader& shader,
-        GL_Camera camera,
+        GL_Camera& camera,
         glm::mat4& transform
     );
 };
