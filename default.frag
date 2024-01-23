@@ -32,8 +32,8 @@ vec4 pointLight()
 
 	// intensity of light with respect to distance
 	float dist = length(lightVec);
-	float a = 3.0;
-	float b = 1.0;
+	float a = 1.0;
+	float b = 0.4;
 	float inten = 10.0f / (a * dist * dist + b * dist + 1.0f);
 
 	// ambient lighting
@@ -101,7 +101,6 @@ vec4 spotLight()
 
 	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor;
 }
-
 
 void main()
 {
