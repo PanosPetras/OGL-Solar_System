@@ -7,7 +7,7 @@ Moon::Moon(
 }
 
 glm::mat4 Moon::getTransformation() {
-	glm::vec3 moonPos = c(tick, orbitRadius);
+	glm::vec3 moonPos = c(tick / 360.0f, orbitRadius);
 	glm::vec3 moonScale = glm::vec3(0.35f);
 	glm::mat4 moonModel = parentPlanet.getTransformation();
 

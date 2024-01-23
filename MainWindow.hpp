@@ -9,15 +9,11 @@ private:
 
 	GL_Window window;
 
-	bool isPaused;
+	bool isPaused, spacePressed;
+	bool shouldClose;
 
-	void draw(); 
 	void handleKeyboardInput(
-		GLFWwindow* window,
-		int key,
-		int scancode,
-		int action,
-		int mods
+		GLFWwindow* window
 	);
 
 public:

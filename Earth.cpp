@@ -5,14 +5,14 @@ Earth::Earth(
 	Sun& parentStar
 ): Planet(
 	parentStar, 
-	20.0f, 
+	24.0f, 
 	R"(C:\Users\ppetr\source\repos\Solar System\Models\earth\Earth.obj)", 
 	1.0f
 ) {
 }
 
 glm::mat4 Earth::getTransformation() {
-	glm::vec3 earthPos = c(tick, orbitRadius);
+	glm::vec3 earthPos = c(tick / 360.0f, orbitRadius);
 	glm::mat4 earthModel = glm::mat4(0.1f);
 
 	earthModel = glm::translate(earthModel, earthPos);

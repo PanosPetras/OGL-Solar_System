@@ -12,7 +12,7 @@ Mars::Mars(
 }
 
 glm::mat4 Mars::getTransformation() {
-	glm::vec3 marsPos = c(tick / 10, orbitRadius);
+	glm::vec3 marsPos = c(tick / 450.0f, orbitRadius);
 	glm::mat4 marsModel = glm::mat4(0.1f);
 
 	marsModel = glm::translate(marsModel, marsPos);

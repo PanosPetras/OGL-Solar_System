@@ -17,6 +17,7 @@ public:
 
 	void Draw(
 		GL_Shader& shader,
+		GL_Shader& lightshader,
 		GL_Camera& camera
 	);
 

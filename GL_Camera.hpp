@@ -25,6 +25,9 @@ protected:
 	int width;
 	int height;
 
+	int x, y;
+	float orbitRadius;
+
 	// Adjust the speed of the camera and it's sensitivity when looking around
 	float speed = 0.1f;
 	float sensitivity = 100.0f;
@@ -51,7 +54,7 @@ public:
 		const char* uniform
 	);
 	// Handles camera inputs
-	void Inputs(
+	void handleKeyboardInput(
 		GLFWwindow* window
 	);
 };

@@ -1,4 +1,5 @@
 #include "GL_Shader.hpp"
+#include "glm/glm.hpp"
 
 std::string GL_Shader::get_file_contents(
 	std::string filename
@@ -59,6 +60,9 @@ GL_Shader::GL_Shader(
 
 void GL_Shader::Activate() {
 	glUseProgram(id);
+
+	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	glUniform4f(glGetUniformLocation(id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 }
 
 void GL_Shader::Delete() {
