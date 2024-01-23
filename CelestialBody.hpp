@@ -11,7 +11,7 @@ protected:
 
 	virtual glm::mat4 getTransformation() = 0;
 
-	inline static int tick = 0;
+	inline static long long tick = 0;
 
 public:
 	CelestialBody(
