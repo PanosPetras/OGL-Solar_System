@@ -4,7 +4,7 @@
 #include "glm/glm.hpp"
 
 glm::vec3 c(
-	int t,
+	float t,
 	float r
 );
 

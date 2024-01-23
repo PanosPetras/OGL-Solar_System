@@ -1,10 +1,10 @@
 #include "C.hpp"
 
 glm::vec3 c(
-	int t,
+	float t,
 	float r
 ) {
-	float x = (float)cos(t / 360.0) * r, y = (float)sin(t / 360.0) * r;
+	float x = (float)cos(t) * r, y = (float)sin(t) * r;
 
 	return glm::vec3(x, 0.0f, y);
 }
