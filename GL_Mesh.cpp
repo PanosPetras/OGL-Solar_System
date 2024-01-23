@@ -13,20 +13,20 @@ GL_Mesh::GL_Mesh(
 
 	VAO.Bind();
 	// Generates Vertex Buffer Object and links it to vertices
-	GL_VBO VBO(vertices);
+	VBO = new GL_VBO(vertices);
 	// Generates Element Buffer Object and links it to indices
-	GL_EBO EBO(indices);
+	EBO = new GL_EBO(indices);
 
 	// Links VBO attributes such as coordinates and colors to VAO
-	VAO.LinkAttrib(VBO, 0, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)0);
-	VAO.LinkAttrib(VBO, 1, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)(3 * sizeof(float)));
-	VAO.LinkAttrib(VBO, 2, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)(6 * sizeof(float)));
-	VAO.LinkAttrib(VBO, 3, 2, GL_FLOAT, sizeof(GL_Vertex), (void*)(9 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 0, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)0);
+	VAO.LinkAttrib(*VBO, 1, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)(3 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 2, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)(6 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 3, 2, GL_FLOAT, sizeof(GL_Vertex), (void*)(9 * sizeof(float)));
 
 	// Unbind all to prevent accidentally modifying them
 	VAO.Unbind();
-	VBO.Unbind();
-	EBO.Unbind();
+	VBO->Unbind();
+	EBO->Unbind();
 }
 
 void GL_Mesh::Draw(
@@ -63,4 +63,13 @@ void GL_Mesh::Draw(
 
 	// Draw the actual mesh
 	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
+}
+
+void GL_Mesh::Delete() {
+	VAO.Delete();
+	VBO->Delete();
+	EBO->Delete();
+
+	delete VBO;
+	delete EBO;
 }

@@ -35,6 +35,7 @@ width(width),
 height(height) {
     isPaused = false;
 	shouldClose = false;
+	spacePressed = false;
 }
 
 void MainWindow::mainLoop() {
@@ -47,7 +48,6 @@ void MainWindow::mainLoop() {
 		"light.vert",
 		"light.frag"
 	);
-
 
 	SolarSystem ss;
 
@@ -63,7 +63,6 @@ void MainWindow::mainLoop() {
 
 	double then = glfwGetTime(), now;
 
-	// Main while loop
 	while (!window.shouldClose() && !shouldClose) {
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -86,7 +85,7 @@ void MainWindow::mainLoop() {
 		}
 	}
 
-	// Delete all the objects we've created
+	ss.Delete();
 	shader.Delete();
 	lightShader.Delete();
 }

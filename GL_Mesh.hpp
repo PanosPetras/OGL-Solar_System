@@ -15,6 +15,8 @@ protected:
 	std::vector<GL_Texture_Png> textures;
 
 	GL_VAO VAO;
+	GL_VBO* VBO;
+	GL_EBO* EBO;
 
 public:
 	GL_Mesh(
@@ -28,5 +30,7 @@ public:
 		GL_Camera& camera,
 		glm::mat4& transform
 	);
+
+	void Delete();
 };
 #endif

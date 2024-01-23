@@ -27,3 +27,7 @@ void CelestialBody::Tick() {
 	tick++;
 	//tick %= (360 * 4);
 }
+
+void CelestialBody::Delete() {
+	model.Delete();
+}

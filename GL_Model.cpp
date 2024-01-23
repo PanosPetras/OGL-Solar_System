@@ -121,3 +121,9 @@ void GL_Model::Draw(
 		mesh.Draw(shader, camera, transform);
 	}
 }
+
+void GL_Model::Delete() {
+	for (GL_Mesh& mesh : meshes) {
+		mesh.Delete();
+	}
+}

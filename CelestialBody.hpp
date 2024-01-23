@@ -26,6 +26,8 @@ public:
 	);
 
 	static void Tick();
+
+	void Delete();
 };
 
 #endif

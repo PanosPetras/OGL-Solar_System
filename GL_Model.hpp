@@ -36,5 +36,7 @@ public:
         GL_Camera& camera,
         glm::mat4& transform
     );
+
+    void Delete();
 };
 #endif
