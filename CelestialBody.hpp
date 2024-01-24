@@ -1,13 +1,13 @@
 #ifndef celestial_body_hpp
 #define celestial_body_hpp
 
-#include "GL_Model.hpp"
+#include "Model.hpp"
 #include <string>
 
 class CelestialBody {
 protected:
 	float revolutions;
-	GL_Model model;
+	OGL::Model model;
 
 	virtual glm::mat4 getTransformation() = 0;
 
@@ -24,8 +24,8 @@ public:
 	~CelestialBody();
 
 	void Draw(
-		GL_Shader& shader,
-		GL_Camera& camera
+		OGL::Shader& shader,
+		OGL::Camera& camera
 	);
 
 	static void Tick();

@@ -13,8 +13,8 @@ CelestialBody::~CelestialBody() {
 }
 
 void CelestialBody::Draw(
-	GL_Shader& shader, 
-	GL_Camera& camera
+	OGL::Shader& shader,
+	OGL::Camera& camera
 ) {
 	if (lastTick != tick) {
 		transformation = getTransformation();

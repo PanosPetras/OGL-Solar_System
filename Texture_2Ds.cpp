@@ -1,6 +1,8 @@
-#include "GL_Texture_2Ds.hpp"
+#include "Texture_2Ds.hpp"
 
-GL_Texture_2Ds::GL_Texture_2Ds(
+using namespace OGL;
+
+Texture_2D::Texture_2D(
 	std::string image,
 	std::string texType,
 	GLuint slot,
@@ -33,8 +35,8 @@ GL_Texture_2Ds::GL_Texture_2Ds(
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void GL_Texture_2Ds::texUnit(
-	GL_Shader& shader,
+void Texture_2D::texUnit(
+	Shader& shader,
 	const char* uniform,
 	GLuint unit
 ) {
@@ -43,15 +45,15 @@ void GL_Texture_2Ds::texUnit(
 	glUniform1i(texUni, unit);
 }
 
-void GL_Texture_2Ds::Bind() {
+void Texture_2D::Bind() {
 	glActiveTexture(GL_TEXTURE0 + unit);
 	glBindTexture(GL_TEXTURE_2D, id);
 }
 
-void GL_Texture_2Ds::Unbind() {
+void Texture_2D::Unbind() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void GL_Texture_2Ds::Delete() {
+void Texture_2D::Delete() {
 	glDeleteTextures(1, &id);
 }

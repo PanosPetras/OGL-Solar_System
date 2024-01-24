@@ -1,7 +1,9 @@
-#include "GL_Shader.hpp"
+#include "Shader.hpp"
 #include "glm/glm.hpp"
 
-std::string GL_Shader::get_file_contents(
+using namespace OGL;
+
+std::string Shader::get_file_contents(
 	std::string filename
 ) {
 	std::ifstream in(filename.c_str(), std::ios::binary);
@@ -21,7 +23,7 @@ std::string GL_Shader::get_file_contents(
 	throw errno;
 }
 
-GL_Shader::GL_Shader(
+Shader::Shader(
 	std::string vertexFile,
 	std::string fragmentFile
 ) {
@@ -48,13 +50,13 @@ GL_Shader::GL_Shader(
 	glDeleteShader(fragmentShader);
 }
 
-void GL_Shader::Activate() {
+void Shader::Activate() {
 	glUseProgram(id);
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	glUniform4f(glGetUniformLocation(id, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 }
 
-void GL_Shader::Delete() {
+void Shader::Delete() {
 	glDeleteProgram(id);
 }

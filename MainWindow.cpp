@@ -5,8 +5,10 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "GL_Model.hpp"
+#include "Model.hpp"
 #include "SolarSystem.hpp"
+
+using namespace OGL;
 
 void MainWindow::handleKeyboardInput(
     GLFWwindow* window
@@ -41,13 +43,13 @@ MainWindow::MainWindow(
 
 void MainWindow::InitializeResources() {
 	shader = new
-		GL_Shader(
+		Shader(
 			"default.vert",
 			"default.frag"
 		);
 
 	lightShader = new
-		GL_Shader(
+		Shader(
 			"light.vert",
 			"light.frag"
 		);
@@ -55,13 +57,13 @@ void MainWindow::InitializeResources() {
 	ss = new SolarSystem();
 
 	light = new 
-		GL_Point_Light(
+		Point_Light(
 			glm::vec3(0.0f, 0.0f, 0.0f)
 		);
 	light->Activate(*shader);
 
 	camera = new
-		GL_Camera(
+		Camera(
 			width,
 			height,
 			glm::vec3(0.0f, 0.0f, 2.0f)

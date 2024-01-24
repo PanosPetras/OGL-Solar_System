@@ -1,9 +1,9 @@
 #ifndef mainWindow_hpp
 #define mainWindow_hpp
 
-#include "GL_Window.hpp"
+#include "Window.hpp"
 #include "SolarSystem.hpp"
-#include "GL_Point_Light.hpp"
+#include "Point_Light.hpp"
 #include "memory"
 
 class MainWindow {
@@ -12,18 +12,18 @@ private:
 
 	int tps;
 
-	GL_Window window;
+	OGL::Window window;
 
 	bool isPaused, spacePressed;
 	bool shouldClose;
 
-	GL_Shader* shader;
-	GL_Shader* lightShader;
+	OGL::Shader* shader;
+	OGL::Shader* lightShader;
 
-	GL_Camera* camera;
+	OGL::Camera* camera;
 
 	SolarSystem* ss;
-	GL_Point_Light* light;
+	OGL::Point_Light* light;
 
 	void handleKeyboardInput(
 		GLFWwindow* window

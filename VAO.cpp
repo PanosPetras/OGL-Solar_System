@@ -1,11 +1,13 @@
-#include "GL_VAO.hpp"
+#include "VAO.hpp"
 
-GL_VAO::GL_VAO() {
+using namespace OGL;
+
+VAO::VAO() {
 	glGenVertexArrays(1, &id);
 }
 
-void GL_VAO::LinkAttrib(
-	GL_VBO& vbo,
+void VAO::LinkAttrib(
+	VBO& vbo,
 	GLuint layout,
 	GLuint numComponents,
 	GLenum type,
@@ -20,14 +22,14 @@ void GL_VAO::LinkAttrib(
 	vbo.Unbind();
 }
 
-void GL_VAO::Bind() {
+void VAO::Bind() {
 	glBindVertexArray(id);
 }
 
-void GL_VAO::Unbind() {
+void VAO::Unbind() {
 	glBindVertexArray(0);
 }
 
-void GL_VAO::Delete() {
+void VAO::Delete() {
 	glDeleteVertexArrays(1, &id);
 }

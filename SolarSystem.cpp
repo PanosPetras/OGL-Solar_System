@@ -7,9 +7,9 @@ SolarSystem::~SolarSystem() {
 }
 
 void SolarSystem::Draw(
-	GL_Shader& shader, 
-	GL_Shader& lightshader, 
-	GL_Camera& camera
+	OGL::Shader& shader,
+	OGL::Shader& lightshader,
+	OGL::Camera& camera
 ) {
 	earth.Draw(shader, camera);
 	sun.Draw(lightshader, camera);

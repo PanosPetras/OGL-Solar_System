@@ -16,9 +16,9 @@ public:
 	~SolarSystem();
 
 	void Draw(
-		GL_Shader& shader,
-		GL_Shader& lightshader,
-		GL_Camera& camera
+		OGL::Shader& shader,
+		OGL::Shader& lightshader,
+		OGL::Camera& camera
 	);
 
 	void Tick();

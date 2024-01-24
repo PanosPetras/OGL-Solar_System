@@ -1,12 +1,14 @@
-#include "GL_Point_Light.hpp"
+#include "Point_Light.hpp"
 
-GL_Point_Light::GL_Point_Light(
+using namespace OGL;
+
+Point_Light::Point_Light(
 	glm::vec3 pos
 ): pos(pos) {
 }
 
-void GL_Point_Light::Activate(
-	GL_Shader& shader
+void Point_Light::Activate(
+	Shader& shader
 ) {
 	shader.Activate();
 

@@ -1,7 +1,9 @@
-#include "GL_Window.hpp"
+#include "Window.hpp"
 #include <stdexcept>
 
-GL_Window::GL_Window(
+using namespace OGL;
+
+Window::Window(
 	int width,
 	int height,
 	std::string name
@@ -25,20 +27,14 @@ GL_Window::GL_Window(
     glEnable(GL_DEPTH_TEST);
 }
 
-GL_Window::~GL_Window() {
+Window::~Window() {
     glfwDestroyWindow(window);
 }
 
-bool GL_Window::shouldClose() {
+bool Window::shouldClose() {
     return glfwWindowShouldClose(window);
 }
 
-void GL_Window::swapBuffers() {
+void Window::swapBuffers() {
     glfwSwapBuffers(window);
-}
-
-void GL_Window::setKeyCallback(
-    GLFWkeyfun callback
-) {
-    glfwSetKeyCallback(window, callback);
 }

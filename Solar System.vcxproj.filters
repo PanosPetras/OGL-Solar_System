@@ -43,10 +43,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Init.cpp">
+    <ClCompile Include="Init.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Window.cpp">
+    <ClCompile Include="Window.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainWindow.cpp">
@@ -55,31 +55,31 @@
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Shader.cpp">
+    <ClCompile Include="Shader.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_VBO.cpp">
+    <ClCompile Include="VBO.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_EBO.cpp">
+    <ClCompile Include="EBO.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_VAO.cpp">
+    <ClCompile Include="VAO.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Texture_2Ds.cpp">
+    <ClCompile Include="Texture_2Ds.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Camera.cpp">
+    <ClCompile Include="Camera.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Mesh.cpp">
+    <ClCompile Include="Mesh.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Model.cpp">
+    <ClCompile Include="Model.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CelestialBody.cpp">
@@ -109,15 +109,15 @@
     <ClCompile Include="C.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Point_Light.cpp">
+    <ClCompile Include="Point_Light.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GL_Init.hpp">
+    <ClInclude Include="Init.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Window.hpp">
+    <ClInclude Include="Window.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainWindow.hpp">
@@ -135,28 +135,28 @@
     <ClInclude Include="Earth.hpp">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Shader.hpp">
+    <ClInclude Include="Shader.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_VBO.hpp">
+    <ClInclude Include="VBO.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_EBO.hpp">
+    <ClInclude Include="EBO.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_VAO.hpp">
+    <ClInclude Include="VAO.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Texture_2Ds.hpp">
+    <ClInclude Include="Texture_2Ds.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Camera.hpp">
+    <ClInclude Include="Camera.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Mesh.hpp">
+    <ClInclude Include="Mesh.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Model.hpp">
+    <ClInclude Include="Model.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CelestialBody.hpp">
@@ -174,10 +174,10 @@
     <ClInclude Include="Moon.hpp">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Vertex.hpp">
+    <ClInclude Include="Vertex.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Point_Light.hpp">
+    <ClInclude Include="Point_Light.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,32 +1,34 @@
-#include "GL_Mesh.hpp"
+#include "Mesh.hpp"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 
-GL_Mesh::GL_Mesh(
-	std::vector <GL_Vertex>& vertices, 
+using namespace OGL;
+
+Mesh::Mesh(
+	std::vector <Vertex>& vertices, 
 	std::vector <GLuint>& indices, 
-	std::vector <GL_Texture_2Ds>& textures
+	std::vector <Texture_2D>& textures
 ) {
-	GL_Mesh::vertices = vertices;
-	GL_Mesh::indices = indices;
-	GL_Mesh::textures = textures;
+	this->vertices = vertices;
+	this->indices = indices;
+	this->textures = textures;
 
 	VAO.Bind();
-	VBO = new GL_VBO(vertices);
-	EBO = new GL_EBO(indices);
+	VBO = new OGL::VBO(vertices);
+	EBO = new OGL::EBO(indices);
 
-	VAO.LinkAttrib(*VBO, 0, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)0);
-	VAO.LinkAttrib(*VBO, 1, 3, GL_FLOAT, sizeof(GL_Vertex), (void*)(3 * sizeof(float)));
-	VAO.LinkAttrib(*VBO, 2, 2, GL_FLOAT, sizeof(GL_Vertex), (void*)(6 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
+	VAO.LinkAttrib(*VBO, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)(3 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)(6 * sizeof(float)));
 
 	VAO.Unbind();
 	VBO->Unbind();
 	EBO->Unbind();
 }
 
-void GL_Mesh::Draw(
-	GL_Shader& shader,
-	GL_Camera& camera,
+void Mesh::Draw(
+	Shader& shader,
+	Camera& camera,
 	glm::mat4& transform
 ) {
 	shader.Activate();
@@ -57,8 +59,8 @@ void GL_Mesh::Draw(
 	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
 }
 
-void GL_Mesh::Delete() {
-	for (GL_Texture_2Ds& txt : textures) {
+void Mesh::Delete() {
+	for (Texture_2D& txt : textures) {
 		txt.Delete();
 	}
 	VAO.Delete();

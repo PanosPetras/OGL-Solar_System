@@ -1,4 +1,4 @@
-#include "GL_Init.hpp"
+#include "Init.hpp"
 #include "MainWindow.hpp"
 #include <iostream>
 #include <cstdlib>
@@ -19,7 +19,7 @@ void createMainWindow() {
 }
 
 int main(void) {
-    GL_Init ogl_init;
+    OGL::Init oinit;
 
     createMainWindow();
 

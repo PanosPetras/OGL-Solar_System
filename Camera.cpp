@@ -1,5 +1,7 @@
-#include "GL_Camera.hpp"
+#include "Camera.hpp"
 #include "C.hpp"
+
+using namespace OGL;
 
 glm::vec3 getPos(
 	int x,
@@ -14,7 +16,7 @@ glm::vec3 getPos(
 	return pos;
 }
 
-GL_Camera::GL_Camera(
+Camera::Camera(
 	int width, 
 	int height, 
 	glm::vec3 position
@@ -29,8 +31,7 @@ GL_Camera::GL_Camera(
 	Position = getPos(x, y, orbitRadius);
 }
 
-
-void GL_Camera::updateMatrix(
+void Camera::updateMatrix(
 	float FOVdeg, 
 	float nearPlane, 
 	float farPlane
@@ -44,14 +45,14 @@ void GL_Camera::updateMatrix(
 	cameraMatrix = projection * view;
 }
 
-void GL_Camera::Matrix(
-	GL_Shader& shader, 
+void Camera::Matrix(
+	Shader& shader, 
 	const char* uniform
 ) {
 	glUniformMatrix4fv(glGetUniformLocation(shader.id, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));
 }
 
-void GL_Camera::handleKeyboardInput(
+void Camera::handleKeyboardInput(
 	GLFWwindow* window
 ) {
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
