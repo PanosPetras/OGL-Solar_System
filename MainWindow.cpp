@@ -31,61 +31,94 @@ MainWindow::MainWindow(
     height,
     "Solar System"
 ), 
-width(width), 
-height(height) {
+	width(width), 
+	height(height) {
     isPaused = false;
 	shouldClose = false;
 	spacePressed = false;
 }
 
-void MainWindow::mainLoop() {
-	GL_Shader shader(
-		"default.vert",
-		"default.frag"
-	);
+void MainWindow::InitializeResources() {
+	shader = new
+		GL_Shader(
+			"default.vert",
+			"default.frag"
+		);
 
-	GL_Shader lightShader(
-		"light.vert",
-		"light.frag"
-	);
+	lightShader = new
+		GL_Shader(
+			"light.vert",
+			"light.frag"
+		);
 
-	SolarSystem ss;
-
-	lightShader.Activate();
-
+	ss = new SolarSystem();
+	
 	glm::vec3 lightPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	shader.Activate();
-	glUniform3f(glGetUniformLocation(shader.id, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
-	glEnable(GL_DEPTH_TEST);
+	shader->Activate();
+	glUniform3f(glGetUniformLocation(shader->id, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
-	GL_Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+	camera = new
+		GL_Camera(
+			width,
+			height,
+			glm::vec3(0.0f, 0.0f, 2.0f)
+		);
+}
 
-	double then = glfwGetTime(), now;
+void MainWindow::DeleteResources() {
+	ss->Delete();
+	shader->Delete();
+	lightShader->Delete();
+
+	delete ss;
+	delete shader;
+	delete lightShader;
+	delete camera;
+}
+
+void MainWindow::Tick(
+	double& then
+) {
+	double now = glfwGetTime();
+
+	if (now - then >= 2.0 / 60 && !isPaused) {
+		ss->Tick();
+
+		then = now;
+	}
+}
+
+void MainWindow::UpdateCamera() {
+	camera->handleKeyboardInput(window.window);
+	camera->updateMatrix(45.0f, 0.1f, 100.0f);
+}
+
+void MainWindow::Draw() {
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	ss->Draw(*shader, *lightShader, *camera);
+
+	window.swapBuffers();
+}
+
+void MainWindow::mainLoop() {
+	InitializeResources();
+
+	double then = glfwGetTime();
 
 	while (!window.shouldClose() && !shouldClose) {
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		camera.handleKeyboardInput(window.window);
 		handleKeyboardInput(window.window);
-		camera.updateMatrix(45.0f, 0.1f, 100.0f);
 
-		ss.Draw(shader, lightShader, camera);
+		UpdateCamera();
 
-		window.swapBuffers();
+		Draw();
+
+		Tick(then);
 
 		glfwPollEvents();
-
-		now = glfwGetTime();
-		if (now - then >= 2.0 / 60 && !isPaused) {
-			ss.Tick();
-
-			then = now;
-		}
 	}
 
-	ss.Delete();
-	shader.Delete();
-	lightShader.Delete();
+	DeleteResources();
 }

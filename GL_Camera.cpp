@@ -6,12 +6,12 @@ glm::vec3 getPos(
 	int y,
 	float orbitRadius
 ) {
-	auto posy = c(y / 200.0f, orbitRadius);
+	auto pos = c(y / 200.0f, orbitRadius);
 
-	posy = glm::rotate(posy, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	posy = glm::rotate(posy, glm::radians(x / 3.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	pos = glm::rotate(pos, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	pos = glm::rotate(pos, glm::radians(x / 3.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-	return posy;
+	return pos;
 }
 
 GL_Camera::GL_Camera(
@@ -21,10 +21,12 @@ GL_Camera::GL_Camera(
 ) {
 	this->width = width;
 	this->height = height;
+
 	x = 0;
 	y = 0;
 	orbitRadius = 10.0f;
-	Position = getPos(0.0f, 0.0f, orbitRadius);
+
+	Position = getPos(x, y, orbitRadius);
 }
 
 
@@ -33,16 +35,12 @@ void GL_Camera::updateMatrix(
 	float nearPlane, 
 	float farPlane
 ) {
-	// Initializes matrices since otherwise they will be the null matrix
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 
-	// Makes camera look in the right direction from the right position
 	view = glm::lookAt(Position, glm::vec3(0.0f), Up);
-	// Adds perspective to the scene
 	projection = glm::perspective(glm::radians(FOVdeg), (float)width / height, nearPlane, farPlane);
 
-	// Sets new camera matrix
 	cameraMatrix = projection * view;
 }
 
@@ -50,7 +48,6 @@ void GL_Camera::Matrix(
 	GL_Shader& shader, 
 	const char* uniform
 ) {
-	// Exports camera matrix
 	glUniformMatrix4fv(glGetUniformLocation(shader.id, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));
 }
 

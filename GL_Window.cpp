@@ -19,6 +19,8 @@ GL_Window::GL_Window(
     gladLoadGL();
 
     glViewport(0, 0, width, height);
+
+    glEnable(GL_DEPTH_TEST);
 }
 
 GL_Window::~GL_Window() {
