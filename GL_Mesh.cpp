@@ -66,6 +66,9 @@ void GL_Mesh::Draw(
 }
 
 void GL_Mesh::Delete() {
+	for (GL_Texture_2Ds& txt : textures) {
+		txt.Delete();
+	}
 	VAO.Delete();
 	VBO->Delete();
 	EBO->Delete();
