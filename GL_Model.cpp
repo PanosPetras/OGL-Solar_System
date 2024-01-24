@@ -48,7 +48,6 @@ GL_Mesh GL_Model::processMesh(
 		vertex = { 
 			.position = glm::vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z),
 			.normal = glm::vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z),
-			.color = glm::vec3(1.0f, 1.0f, 1.0f),
 			.texUV = glm::vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y)
 		};
 
