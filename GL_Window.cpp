@@ -16,6 +16,8 @@ GL_Window::GL_Window(
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    glfwSetWindowAttrib(window, GLFW_RESIZABLE, false);
+
     gladLoadGL();
 
     glViewport(0, 0, width, height);
