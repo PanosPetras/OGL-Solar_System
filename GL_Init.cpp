@@ -6,6 +6,9 @@ GL_Init::GL_Init() {
     if (!glfwInit()) {
         throw std::runtime_error("Could not initialize OpenGL");
     }
+    
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 }
 
 GL_Init::~GL_Init() {
