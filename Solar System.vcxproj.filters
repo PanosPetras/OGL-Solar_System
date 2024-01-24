@@ -73,7 +73,7 @@
     <ClCompile Include="stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Texture_Png.cpp">
+    <ClCompile Include="GL_Texture_2Ds.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GL_Camera.cpp">
@@ -147,7 +147,7 @@
     <ClInclude Include="GL_VAO.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Texture_Png.hpp">
+    <ClInclude Include="GL_Texture_2Ds.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GL_Camera.hpp">

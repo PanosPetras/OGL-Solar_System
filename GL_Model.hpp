@@ -20,7 +20,7 @@ private:
         aiMesh* mesh, 
         const aiScene* scene
     );
-    std::vector<GL_Texture_Png> loadMaterialTextures(
+    std::vector<GL_Texture_2Ds> loadMaterialTextures(
         aiMaterial* mat, 
         aiTextureType type,
         std::string typeName

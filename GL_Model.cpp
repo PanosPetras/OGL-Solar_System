@@ -40,7 +40,7 @@ GL_Mesh GL_Model::processMesh(
 ) {
 	std::vector<GL_Vertex> vertices;
 	std::vector<GLuint> indices;
-	std::vector<GL_Texture_Png> textures;
+	std::vector<GL_Texture_2Ds> textures;
 
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
 		GL_Vertex vertex;
@@ -65,7 +65,7 @@ GL_Mesh GL_Model::processMesh(
 	if (mesh->mMaterialIndex >= 0) {
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 
-		std::vector<GL_Texture_Png> diffuseMaps = loadMaterialTextures(
+		std::vector<GL_Texture_2Ds> diffuseMaps = loadMaterialTextures(
 			material,
 			aiTextureType_DIFFUSE, "diffuse"
 		);
@@ -75,7 +75,7 @@ GL_Mesh GL_Model::processMesh(
 			diffuseMaps.end()
 		);
 
-		std::vector<GL_Texture_Png> specularMaps = loadMaterialTextures(
+		std::vector<GL_Texture_2Ds> specularMaps = loadMaterialTextures(
 			material,
 			aiTextureType_SPECULAR, 
 			"specular"
@@ -86,12 +86,12 @@ GL_Mesh GL_Model::processMesh(
 	return GL_Mesh(vertices, indices, textures);
 }
 
-std::vector<GL_Texture_Png> GL_Model::loadMaterialTextures(
+std::vector<GL_Texture_2Ds> GL_Model::loadMaterialTextures(
 	aiMaterial* mat, 
 	aiTextureType type, 
 	std::string typeName
 ) {
-	std::vector<GL_Texture_Png> textures;
+	std::vector<GL_Texture_2Ds> textures;
 
 	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++) {
 		aiString str;
@@ -100,7 +100,7 @@ std::vector<GL_Texture_Png> GL_Model::loadMaterialTextures(
 		int colorChannels = GL_RGBA;
 		if (std::string(str.C_Str()).find("sun") != std::string::npos) colorChannels = GL_RGB;
 
-		GL_Texture_Png texture(directory + str.C_Str(), typeName, i, colorChannels, GL_UNSIGNED_BYTE);
+		GL_Texture_2Ds texture(directory + str.C_Str(), typeName, i, colorChannels, GL_UNSIGNED_BYTE);
 		textures.push_back(texture);
 	}
 	return textures;

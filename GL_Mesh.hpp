@@ -6,13 +6,13 @@
 #include "GL_VAO.hpp"
 #include "GL_EBO.hpp"
 #include "GL_Camera.hpp"
-#include "GL_Texture_Png.hpp"
+#include "GL_Texture_2Ds.hpp"
 
 class GL_Mesh {
 protected:
 	std::vector<GL_Vertex> vertices;
 	std::vector<GLuint> indices;
-	std::vector<GL_Texture_Png> textures;
+	std::vector<GL_Texture_2Ds> textures;
 
 	GL_VAO VAO;
 	GL_VBO* VBO;
@@ -22,7 +22,7 @@ public:
 	GL_Mesh(
 		std::vector<GL_Vertex>& vertices, 
 		std::vector<GLuint>& indices, 
-		std::vector<GL_Texture_Png>& textures
+		std::vector<GL_Texture_2Ds>& textures
 	);
 
 	void Draw(

@@ -1,6 +1,6 @@
-#include "GL_Texture_Png.hpp"
+#include "GL_Texture_2Ds.hpp"
 
-GL_Texture_Png::GL_Texture_Png(
+GL_Texture_2Ds::GL_Texture_2Ds(
 	std::string image,
 	std::string texType,
 	GLuint slot,
@@ -44,7 +44,7 @@ GL_Texture_Png::GL_Texture_Png(
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void GL_Texture_Png::texUnit(
+void GL_Texture_2Ds::texUnit(
 	GL_Shader& shader,
 	const char* uniform,
 	GLuint unit
@@ -57,15 +57,15 @@ void GL_Texture_Png::texUnit(
 	glUniform1i(texUni, unit);
 }
 
-void GL_Texture_Png::Bind() {
+void GL_Texture_2Ds::Bind() {
 	glActiveTexture(GL_TEXTURE0 + unit);
 	glBindTexture(GL_TEXTURE_2D, id);
 }
 
-void GL_Texture_Png::Unbind() {
+void GL_Texture_2Ds::Unbind() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void GL_Texture_Png::Delete() {
+void GL_Texture_2Ds::Delete() {
 	glDeleteTextures(1, &id);
 }

@@ -5,7 +5,7 @@
 GL_Mesh::GL_Mesh(
 	std::vector <GL_Vertex>& vertices, 
 	std::vector <GLuint>& indices, 
-	std::vector <GL_Texture_Png>& textures
+	std::vector <GL_Texture_2Ds>& textures
 ) {
 	GL_Mesh::vertices = vertices;
 	GL_Mesh::indices = indices;

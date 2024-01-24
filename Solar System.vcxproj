@@ -153,7 +153,7 @@
     <ClCompile Include="GL_Mesh.cpp" />
     <ClCompile Include="GL_Model.cpp" />
     <ClCompile Include="GL_Shader.cpp" />
-    <ClCompile Include="GL_Texture_Png.cpp" />
+    <ClCompile Include="GL_Texture_2Ds.cpp" />
     <ClCompile Include="GL_VAO.cpp" />
     <ClCompile Include="GL_VBO.cpp" />
     <ClCompile Include="GL_Window.cpp" />
@@ -170,7 +170,7 @@
     <ClInclude Include="GL_Mesh.hpp" />
     <ClInclude Include="GL_Model.hpp" />
     <ClInclude Include="GL_Shader.hpp" />
-    <ClInclude Include="GL_Texture_Png.hpp" />
+    <ClInclude Include="GL_Texture_2Ds.hpp" />
     <ClInclude Include="GL_VAO.hpp" />
     <ClInclude Include="GL_VBO.hpp" />
   </ItemGroup>

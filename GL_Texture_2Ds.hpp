@@ -1,12 +1,12 @@
-#ifndef gl_texture_png_hpp
-#define gl_texture_png_hpp
+#ifndef GL_Texture_2Ds_hpp
+#define GL_Texture_2Ds_hpp
 
 #include <string>
 #include <glad/glad.h>
 #include <stb/stb_image.h>
 #include "GL_Shader.hpp"
 
-class GL_Texture_Png {
+class GL_Texture_2Ds {
 protected:
 	GLuint unit;
 
@@ -14,7 +14,7 @@ public:
 	GLuint id;
 	std::string type;
 
-	GL_Texture_Png(
+	GL_Texture_2Ds(
 		std::string image,
 		std::string texType,
 		GLuint slot,
