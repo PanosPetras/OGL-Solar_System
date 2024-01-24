@@ -11,6 +11,9 @@ protected:
 
 	virtual glm::mat4 getTransformation() = 0;
 
+	glm::mat4 transformation;
+	long long lastTick;
+
 	inline static long long tick = 0;
 
 public:

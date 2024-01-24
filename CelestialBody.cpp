@@ -1,10 +1,12 @@
 #include "CelestialBody.hpp"
+#include "glm/glm.hpp"
 
 CelestialBody::CelestialBody(
 	std::string model, 
 	float revolutions
 ): model(model), 
 	revolutions(revolutions) {
+	lastTick = -1;
 }
 
 CelestialBody::~CelestialBody() {
@@ -14,7 +16,10 @@ void CelestialBody::Draw(
 	GL_Shader& shader, 
 	GL_Camera& camera
 ) {
-	auto transformation = getTransformation();
+	if (lastTick != tick) {
+		transformation = getTransformation();
+		lastTick = tick;
+	}
 
 	model.Draw(
 		shader, 
@@ -25,7 +30,6 @@ void CelestialBody::Draw(
 
 void CelestialBody::Tick() {
 	tick++;
-	//tick %= (360 * 4);
 }
 
 void CelestialBody::Delete() {
