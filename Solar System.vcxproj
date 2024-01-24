@@ -159,6 +159,7 @@
     <ClCompile Include="GL_Window.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClInclude Include="GL_Vertex.hpp" />
     <ClInclude Include="Moon.hpp" />
     <ClCompile Include="Planet.cpp" />
     <ClInclude Include="Mars.hpp" />

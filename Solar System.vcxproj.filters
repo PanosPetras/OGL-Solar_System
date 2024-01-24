@@ -171,6 +171,9 @@
     <ClInclude Include="Moon.hpp">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GL_Vertex.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
