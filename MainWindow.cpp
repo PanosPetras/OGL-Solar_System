@@ -36,6 +36,7 @@ MainWindow::MainWindow(
     isPaused = false;
 	shouldClose = false;
 	spacePressed = false;
+	tps = 30;
 }
 
 void MainWindow::InitializeResources() {
@@ -82,7 +83,7 @@ void MainWindow::Tick(
 ) {
 	double now = glfwGetTime();
 
-	if (now - then >= 2.0 / 60 && !isPaused) {
+	if (now - then >= 1.0 / tps && !isPaused) {
 		ss->Tick();
 
 		then = now;

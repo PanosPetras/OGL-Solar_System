@@ -9,6 +9,8 @@ class MainWindow {
 private:
 	int width, height;
 
+	int tps;
+
 	GL_Window window;
 
 	bool isPaused, spacePressed;
