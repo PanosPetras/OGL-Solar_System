@@ -1,7 +1,8 @@
 #ifndef gl_model_hpp
 #define gl_model_hpp
 
-#include "assimp/scene.h"
+#include <assimp/scene.h>
+
 #include "GL_Mesh.hpp"
 
 class GL_Model {

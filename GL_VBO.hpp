@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glad/glad.h>
 #include <vector>
+
 #include "GL_Vertex.hpp"
 
 class GL_VBO {

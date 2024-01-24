@@ -1,6 +1,6 @@
 #include "GL_Mesh.hpp"
-#include "assimp/Importer.hpp"
-#include "assimp/scene.h"
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
 
 GL_Mesh::GL_Mesh(
 	std::vector <GL_Vertex>& vertices, 

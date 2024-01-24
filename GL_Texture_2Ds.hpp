@@ -4,6 +4,7 @@
 #include <string>
 #include <glad/glad.h>
 #include <stb/stb_image.h>
+
 #include "GL_Shader.hpp"
 
 class GL_Texture_2Ds {

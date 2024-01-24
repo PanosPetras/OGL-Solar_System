@@ -2,6 +2,7 @@
 #define gl_vao_hpp
 
 #include <glad/glad.h>
+
 #include "GL_VBO.hpp"
 
 class GL_VAO {

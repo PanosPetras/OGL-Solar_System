@@ -3,6 +3,7 @@
 
 #include "GL_Window.hpp"
 #include "SolarSystem.hpp"
+#include "GL_Point_Light.hpp"
 #include "memory"
 
 class MainWindow {
@@ -22,6 +23,7 @@ private:
 	GL_Camera* camera;
 
 	SolarSystem* ss;
+	GL_Point_Light* light;
 
 	void handleKeyboardInput(
 		GLFWwindow* window

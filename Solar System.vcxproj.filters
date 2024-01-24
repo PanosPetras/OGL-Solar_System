@@ -109,6 +109,9 @@
     <ClCompile Include="C.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GL_Point_Light.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL_Init.hpp">
@@ -172,6 +175,9 @@
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GL_Vertex.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Point_Light.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

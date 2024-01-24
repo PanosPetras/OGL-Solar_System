@@ -2,7 +2,7 @@
 #define gl_ebo_hpp
 
 #include <glad/glad.h>
-#include<vector>
+#include <vector>
 
 class GL_EBO {
 protected:

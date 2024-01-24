@@ -53,11 +53,12 @@ void MainWindow::InitializeResources() {
 		);
 
 	ss = new SolarSystem();
-	
-	glm::vec3 lightPos = glm::vec3(0.0f, 0.0f, 0.0f);
 
-	shader->Activate();
-	glUniform3f(glGetUniformLocation(shader->id, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+	light = new 
+		GL_Point_Light(
+			glm::vec3(0.0f, 0.0f, 0.0f)
+		);
+	light->Activate(*shader);
 
 	camera = new
 		GL_Camera(
@@ -73,6 +74,7 @@ void MainWindow::DeleteResources() {
 	lightShader->Delete();
 
 	delete ss;
+	delete light;
 	delete shader;
 	delete lightShader;
 	delete camera;

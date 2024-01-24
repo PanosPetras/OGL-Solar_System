@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="C.cpp" />
     <ClCompile Include="CelestialBody.cpp" />
+    <ClCompile Include="GL_Point_Light.cpp" />
     <ClCompile Include="Mars.cpp" />
     <ClCompile Include="Moon.cpp" />
     <ClCompile Include="SolarSystem.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="GL_Window.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClInclude Include="GL_Point_Light.hpp" />
     <ClInclude Include="GL_Vertex.hpp" />
     <ClInclude Include="Moon.hpp" />
     <ClCompile Include="Planet.cpp" />
