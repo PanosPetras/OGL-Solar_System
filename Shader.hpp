@@ -15,17 +15,34 @@ namespace OGL {
 			const std::string filename
 		);
 
-	public:
-		GLuint id;
-
 		Shader(
 			std::string vertexFile,
 			std::string fragmentFile
 		);
 
+	public:
+		GLuint id;
+
 		void Activate();
 		void Delete();
 	};
+
+	namespace Shaders {
+		class Default: public Shader {
+		public:
+			Default();
+		};
+
+		class Light: public Shader {
+		public:
+			Light();
+		};
+
+		class ShadowMap: public Shader {
+		public:
+			ShadowMap();
+		};
+	}
 }
 
 #endif

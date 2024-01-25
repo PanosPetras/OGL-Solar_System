@@ -60,3 +60,18 @@ void Shader::Activate() {
 void Shader::Delete() {
 	glDeleteProgram(id);
 }
+
+Shaders::Default::Default(): Shader(
+	"default.vert",
+	"default.frag"
+) { }
+
+Shaders::Light::Light(): Shader(
+	"light.vert",
+	"light.frag"
+) { }
+
+Shaders::ShadowMap::ShadowMap(): Shader(
+	"shadowMap.vert",
+	"shadowMap.frag"
+) { }

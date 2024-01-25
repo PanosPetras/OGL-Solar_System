@@ -42,17 +42,8 @@ MainWindow::MainWindow(
 }
 
 void MainWindow::InitializeResources() {
-	shader = new
-		Shader(
-			"default.vert",
-			"default.frag"
-		);
-
-	lightShader = new
-		Shader(
-			"light.vert",
-			"light.frag"
-		);
+	shader = new Shaders::Default();
+	lightShader = new Shaders::Light();
 
 	ss = new SolarSystem();
 
