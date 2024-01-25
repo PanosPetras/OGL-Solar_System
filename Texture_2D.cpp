@@ -1,4 +1,4 @@
-#include "Texture_2Ds.hpp"
+#include "Texture_2D.hpp"
 
 using namespace OGL;
 

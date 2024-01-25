@@ -1,5 +1,5 @@
-#ifndef Texture_2Ds_hpp
-#define Texture_2Ds_hpp
+#ifndef Texture_2D_hpp
+#define Texture_2D_hpp
 
 #include <string>
 #include <glad/glad.h>

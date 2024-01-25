@@ -6,7 +6,7 @@
 #include "VAO.hpp"
 #include "EBO.hpp"
 #include "Camera.hpp"
-#include "Texture_2Ds.hpp"
+#include "Texture_2D.hpp"
 
 namespace OGL {
 	class Mesh {
