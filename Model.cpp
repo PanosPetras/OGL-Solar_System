@@ -40,12 +40,12 @@ Mesh_3D Model::processMesh(
 	aiMesh* mesh, 
 	const aiScene* scene
 ) {
-	std::vector<Vertex> vertices;
+	std::vector<Vertex_3D> vertices;
 	std::vector<GLuint> indices;
 	std::vector<Texture_2D> textures;
 
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
-		Vertex vertex;
+		Vertex_3D vertex;
 
 		vertex = { 
 			.position = glm::vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z),
