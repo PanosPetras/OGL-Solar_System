@@ -1,10 +1,11 @@
 #include "SolarSystem.hpp"
 
-SolarSystem::SolarSystem(): sun(), earth(sun), mars(sun), moon(earth), bgStars(100) {
-}
-
-SolarSystem::~SolarSystem() {
-}
+SolarSystem::SolarSystem(): 
+	sun(), 
+	earth(sun), 
+	mars(sun), 
+	moon(earth), 
+	bgStars(100) { }
 
 void SolarSystem::Draw(
 	OGL::Shader& shader3d, 

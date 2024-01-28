@@ -141,7 +141,9 @@
     <ClCompile Include="C.cpp" />
     <ClCompile Include="CelestialBody.cpp" />
     <ClInclude Include="BackgroundStars.hpp" />
+    <ClInclude Include="GetProjectPath.hpp" />
     <ClInclude Include="Mesh_2D.hpp" />
+    <ClCompile Include="GetProjectPath.cpp" />
     <ClCompile Include="Mesh_2D.cpp" />
     <ClCompile Include="Point_Light.cpp" />
     <ClCompile Include="Mars.cpp" />

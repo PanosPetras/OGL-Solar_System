@@ -1,10 +1,12 @@
 #include "Moon.hpp"
 #include "C.hpp"
+#include "GetProjectPath.hpp"
 
 Moon::Moon(
 	Earth& parentPlanet
-): parentPlanet(parentPlanet), orbitRadius(5.0f), CelestialBody(R"(C:\Users\ppetr\source\repos\Solar System\Models\moon\Moon.obj)", 1.0f) {
-}
+): parentPlanet(parentPlanet), 
+	orbitRadius(5.0f), 
+	CelestialBody(getModelPath("\\moon\\Moon.obj"), 1.0f) { }
 
 glm::mat4 Moon::getTransformation() {
 	glm::vec3 moonPos = c(tick / 360.0f, orbitRadius);

@@ -16,7 +16,6 @@ private:
 
 public:
 	SolarSystem();
-	~SolarSystem();
 
 	void Draw(
 		OGL::Shader& shader3d,

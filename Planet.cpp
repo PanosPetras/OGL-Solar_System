@@ -7,5 +7,4 @@ Planet::Planet(
 	float revolutions
 ): CelestialBody(model, revolutions), 
 	parentStar(parentStar), 
-	orbitRadius(orbitRadius) {
-}
+	orbitRadius(orbitRadius) { }

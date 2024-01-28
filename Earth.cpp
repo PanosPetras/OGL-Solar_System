@@ -1,15 +1,15 @@
 #include "Earth.hpp"
 #include "C.hpp"
+#include "GetProjectPath.hpp"
 
 Earth::Earth(
 	Sun& parentStar
 ): Planet(
 	parentStar, 
 	24.0f, 
-	R"(C:\Users\ppetr\source\repos\Solar System\Models\earth\Earth.obj)", 
+	getModelPath("\\earth\\Earth.obj"),
 	1.0f
-) {
-}
+) { }
 
 glm::mat4 Earth::getTransformation() {
 	glm::vec3 earthPos = c(tick / 360.0f, orbitRadius);

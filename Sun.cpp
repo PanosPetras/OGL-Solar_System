@@ -1,4 +1,5 @@
 #include "Sun.hpp"
+#include "GetProjectPath.hpp"
 
 glm::mat4 Sun::getTransformation() {
 	glm::vec3 sunPos = glm::vec3(-1.0f, -1.0f, -1.0f);
@@ -10,5 +11,8 @@ glm::mat4 Sun::getTransformation() {
 	return sunModel;
 }
 
-Sun::Sun(): Star(R"(C:\Users\ppetr\source\repos\Solar System\Models\sun\sun.obj)", 0.1f) {
-}
+Sun::Sun(): 
+	Star(
+		getModelPath("\\sun\\sun.obj"), 
+		0.1f
+) { }

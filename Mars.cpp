@@ -1,15 +1,15 @@
 #include "Mars.hpp"
 #include "C.hpp"
+#include "GetProjectPath.hpp"
 
 Mars::Mars(
 	Sun& parentStar
 ) : Planet(
 	parentStar,
 	50.0f,
-	R"(C:\Users\ppetr\source\repos\Solar System\Models\planet\planet.obj)",
+	getModelPath("\\planet\\planet.obj"),
 	1.0f
-) {
-}
+) { }
 
 glm::mat4 Mars::getTransformation() {
 	glm::vec3 marsPos = c(tick / 450.0f, orbitRadius);

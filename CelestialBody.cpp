@@ -9,8 +9,7 @@ CelestialBody::CelestialBody(
 	lastTick = -1;
 }
 
-CelestialBody::~CelestialBody() {
-}
+CelestialBody::~CelestialBody() { }
 
 void CelestialBody::Draw(
 	OGL::Shader& shader,
