@@ -70,3 +70,8 @@ Shaders::Light::Light(): Shader(
 	"light.vert",
 	"light.frag"
 ) { }
+
+Shaders::Default_2D::Default_2D(): Shader(
+	"default2d.vert",
+	"default2d.frag"
+) { }

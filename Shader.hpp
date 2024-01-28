@@ -33,6 +33,11 @@ namespace OGL {
 			Default_3D();
 		};
 
+		class Default_2D: public Shader {
+		public:
+			Default_2D();
+		};
+
 		class Light: public Shader {
 		public:
 			Light();
