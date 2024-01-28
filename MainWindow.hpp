@@ -17,7 +17,8 @@ private:
 	bool isPaused, spacePressed;
 	bool shouldClose;
 
-	OGL::Shader* shader;
+	OGL::Shader* shader3d;
+	OGL::Shader* shader2d;
 	OGL::Shader* lightShader;
 
 	OGL::Camera* camera;

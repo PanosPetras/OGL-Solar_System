@@ -137,8 +137,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackgroundStars.cpp" />
     <ClCompile Include="C.cpp" />
     <ClCompile Include="CelestialBody.cpp" />
+    <ClInclude Include="BackgroundStars.hpp" />
+    <ClInclude Include="Mesh_2D.hpp" />
+    <ClCompile Include="Mesh_2D.cpp" />
     <ClCompile Include="Point_Light.cpp" />
     <ClCompile Include="Mars.cpp" />
     <ClCompile Include="Moon.cpp" />
@@ -187,6 +191,8 @@
     <ClInclude Include="Sun.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="default2d.frag" />
+    <None Include="default2d.vert" />
     <None Include="default3d.frag" />
     <None Include="default3d.vert" />
     <None Include="light.frag" />

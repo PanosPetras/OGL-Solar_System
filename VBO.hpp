@@ -17,6 +17,10 @@ namespace OGL {
 			std::vector<Vertex_3D>& vertices
 		);
 
+		VBO(
+			std::vector<Vertex_2D>& vertices
+		);
+
 		void Bind();
 		void Unbind();
 		void Delete();

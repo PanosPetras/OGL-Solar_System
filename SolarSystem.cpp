@@ -1,20 +1,22 @@
 #include "SolarSystem.hpp"
 
-SolarSystem::SolarSystem(): sun(), earth(sun), mars(sun), moon(earth) {
+SolarSystem::SolarSystem(): sun(), earth(sun), mars(sun), moon(earth), bgStars(100) {
 }
 
 SolarSystem::~SolarSystem() {
 }
 
 void SolarSystem::Draw(
-	OGL::Shader& shader,
-	OGL::Shader& lightshader,
+	OGL::Shader& shader3d, 
+	OGL::Shader& shader2d, 
+	OGL::Shader& lightshader, 
 	OGL::Camera& camera
 ) {
-	earth.Draw(shader, camera);
+	bgStars.Draw(shader2d);
 	sun.Draw(lightshader, camera);
-	moon.Draw(shader, camera);
-	mars.Draw(shader, camera);
+	earth.Draw(shader3d, camera);
+	moon.Draw(shader3d, camera);
+	mars.Draw(shader3d, camera);
 }
 
 void SolarSystem::Tick() {
@@ -22,8 +24,9 @@ void SolarSystem::Tick() {
 }
 
 void SolarSystem::Delete() {
-	earth.Delete();
+	bgStars.Delete();
 	sun.Delete();
+	earth.Delete();
 	moon.Delete();
 	mars.Delete();
 }

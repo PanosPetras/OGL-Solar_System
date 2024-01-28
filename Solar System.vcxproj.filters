@@ -112,6 +112,12 @@
     <ClCompile Include="Mesh_3D.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh_2D.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundStars.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Init.hpp">
@@ -180,6 +186,12 @@
     <ClInclude Include="Mesh_3D.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh_2D.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundStars.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default3d.vert">
@@ -192,6 +204,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="light.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="default2d.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="default2d.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

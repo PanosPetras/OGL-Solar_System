@@ -42,7 +42,8 @@ MainWindow::MainWindow(
 }
 
 void MainWindow::InitializeResources() {
-	shader = new Shaders::Default_3D();
+	shader3d = new Shaders::Default_3D();
+	shader2d = new Shaders::Default_2D();
 	lightShader = new Shaders::Light();
 
 	ss = new SolarSystem();
@@ -51,7 +52,7 @@ void MainWindow::InitializeResources() {
 		Point_Light(
 			glm::vec3(0.0f, 0.0f, 0.0f)
 		);
-	light->Activate(*shader);
+	light->Activate(*shader3d);
 
 	camera = new
 		Camera(
@@ -63,12 +64,14 @@ void MainWindow::InitializeResources() {
 
 void MainWindow::DeleteResources() {
 	ss->Delete();
-	shader->Delete();
+	shader3d->Delete();
+	shader2d->Delete();
 	lightShader->Delete();
 
 	delete ss;
 	delete light;
-	delete shader;
+	delete shader3d;
+	delete shader2d;
 	delete lightShader;
 	delete camera;
 }
@@ -94,7 +97,12 @@ void MainWindow::Draw() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	ss->Draw(*shader, *lightShader, *camera);
+	ss->Draw(
+		*shader3d,
+		*shader2d,
+		*lightShader,
+		*camera
+	);
 
 	window.swapBuffers();
 }
