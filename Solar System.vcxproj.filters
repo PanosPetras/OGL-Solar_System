@@ -118,6 +118,9 @@
     <ClCompile Include="BackgroundStars.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GetProjectPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Init.hpp">
@@ -190,6 +193,9 @@
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BackgroundStars.hpp">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetProjectPath.hpp">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
