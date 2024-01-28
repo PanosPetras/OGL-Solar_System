@@ -37,11 +37,6 @@ namespace OGL {
 		public:
 			Light();
 		};
-
-		class ShadowMap: public Shader {
-		public:
-			ShadowMap();
-		};
 	}
 }
 

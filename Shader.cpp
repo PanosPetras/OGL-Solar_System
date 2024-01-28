@@ -70,8 +70,3 @@ Shaders::Light::Light(): Shader(
 	"light.vert",
 	"light.frag"
 ) { }
-
-Shaders::ShadowMap::ShadowMap(): Shader(
-	"shadowMap.vert",
-	"shadowMap.frag"
-) { }
