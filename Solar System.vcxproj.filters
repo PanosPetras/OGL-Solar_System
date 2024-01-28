@@ -182,10 +182,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.vert">
+    <None Include="default3d.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="default.frag">
+    <None Include="default3d.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="light.frag">

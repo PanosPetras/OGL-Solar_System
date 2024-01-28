@@ -61,9 +61,9 @@ void Shader::Delete() {
 	glDeleteProgram(id);
 }
 
-Shaders::Default::Default(): Shader(
-	"default.vert",
-	"default.frag"
+Shaders::Default_3D::Default_3D(): Shader(
+	"default3d.vert",
+	"default3d.frag"
 ) { }
 
 Shaders::Light::Light(): Shader(

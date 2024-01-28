@@ -187,8 +187,8 @@
     <ClInclude Include="Sun.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
+    <None Include="default3d.frag" />
+    <None Include="default3d.vert" />
     <None Include="light.frag" />
     <None Include="light.vert" />
   </ItemGroup>

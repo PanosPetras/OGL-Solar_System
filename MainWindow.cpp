@@ -42,7 +42,7 @@ MainWindow::MainWindow(
 }
 
 void MainWindow::InitializeResources() {
-	shader = new Shaders::Default();
+	shader = new Shaders::Default_3D();
 	lightShader = new Shaders::Light();
 
 	ss = new SolarSystem();

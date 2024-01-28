@@ -28,9 +28,9 @@ namespace OGL {
 	};
 
 	namespace Shaders {
-		class Default: public Shader {
+		class Default_3D: public Shader {
 		public:
-			Default();
+			Default_3D();
 		};
 
 		class Light: public Shader {
