@@ -5,7 +5,7 @@
 using namespace OGL;
 
 Mesh_3D::Mesh_3D(
-	std::vector <Vertex>& vertices, 
+	std::vector <Vertex_3D>& vertices, 
 	std::vector <GLuint>& indices, 
 	std::vector <Texture_2D>& textures
 ) {
@@ -17,9 +17,9 @@ Mesh_3D::Mesh_3D(
 	VBO = new OGL::VBO(vertices);
 	EBO = new OGL::EBO(indices);
 
-	VAO.LinkAttrib(*VBO, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
-	VAO.LinkAttrib(*VBO, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)(3 * sizeof(float)));
-	VAO.LinkAttrib(*VBO, 2, 2, GL_FLOAT, sizeof(Vertex), (void*)(6 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 0, 3, GL_FLOAT, sizeof(Vertex_3D), (void*)0);
+	VAO.LinkAttrib(*VBO, 1, 3, GL_FLOAT, sizeof(Vertex_3D), (void*)(3 * sizeof(float)));
+	VAO.LinkAttrib(*VBO, 2, 2, GL_FLOAT, sizeof(Vertex_3D), (void*)(6 * sizeof(float)));
 
 	VAO.Unbind();
 	VBO->Unbind();

@@ -14,7 +14,7 @@ namespace OGL {
 
 	public:
 		VBO(
-			std::vector<Vertex>& vertices
+			std::vector<Vertex_3D>& vertices
 		);
 
 		void Bind();

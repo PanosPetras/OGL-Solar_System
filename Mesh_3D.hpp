@@ -1,5 +1,5 @@
-#ifndef mesh_hpp
-#define mesh_hpp
+#ifndef mesh_3d_hpp
+#define mesh_3d_hpp
 
 #include <string>
 
@@ -11,7 +11,7 @@
 namespace OGL {
 	class Mesh_3D {
 	protected:
-		std::vector<Vertex> vertices;
+		std::vector<Vertex_3D> vertices;
 		std::vector<GLuint> indices;
 		std::vector<Texture_2D> textures;
 
@@ -21,7 +21,7 @@ namespace OGL {
 
 	public:
 		Mesh_3D(
-			std::vector<Vertex>& vertices,
+			std::vector<Vertex_3D>& vertices,
 			std::vector<GLuint>& indices, 
 			std::vector<Texture_2D>& textures
 		);
