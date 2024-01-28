@@ -9,7 +9,7 @@
 #include "Texture_2D.hpp"
 
 namespace OGL {
-	class Mesh {
+	class Mesh_3D {
 	protected:
 		std::vector<Vertex> vertices;
 		std::vector<GLuint> indices;
@@ -20,7 +20,7 @@ namespace OGL {
 		EBO* EBO;
 
 	public:
-		Mesh(
+		Mesh_3D(
 			std::vector<Vertex>& vertices,
 			std::vector<GLuint>& indices, 
 			std::vector<Texture_2D>& textures

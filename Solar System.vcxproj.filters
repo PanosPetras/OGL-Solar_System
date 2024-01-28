@@ -76,9 +76,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>OpenGL\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
@@ -110,6 +107,9 @@
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point_Light.cpp">
+      <Filter>OpenGL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh_3D.cpp">
       <Filter>OpenGL\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -153,9 +153,6 @@
     <ClInclude Include="Camera.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.hpp">
-      <Filter>OpenGL\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
@@ -180,6 +177,9 @@
     <ClInclude Include="Point_Light.hpp">
       <Filter>OpenGL\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh_3D.hpp">
+      <Filter>OpenGL\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
@@ -192,12 +192,6 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="light.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="shadowMap.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="shadowMap.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

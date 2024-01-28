@@ -1,10 +1,10 @@
-#include "Mesh.hpp"
+#include "Mesh_3D.hpp"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 
 using namespace OGL;
 
-Mesh::Mesh(
+Mesh_3D::Mesh_3D(
 	std::vector <Vertex>& vertices, 
 	std::vector <GLuint>& indices, 
 	std::vector <Texture_2D>& textures
@@ -26,7 +26,7 @@ Mesh::Mesh(
 	EBO->Unbind();
 }
 
-void Mesh::Draw(
+void Mesh_3D::Draw(
 	Shader& shader,
 	Camera& camera,
 	glm::mat4& transform
@@ -59,7 +59,7 @@ void Mesh::Draw(
 	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
 }
 
-void Mesh::Delete() {
+void Mesh_3D::Delete() {
 	for (Texture_2D& txt : textures) {
 		txt.Delete();
 	}

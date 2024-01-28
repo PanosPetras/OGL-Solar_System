@@ -36,7 +36,7 @@ void Model::processNode(
 	}
 }
 
-Mesh Model::processMesh(
+Mesh_3D Model::processMesh(
 	aiMesh* mesh, 
 	const aiScene* scene
 ) {
@@ -84,7 +84,7 @@ Mesh Model::processMesh(
 		textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 	}
 
-	return Mesh(vertices, indices, textures);
+	return Mesh_3D(vertices, indices, textures);
 }
 
 std::vector<Texture_2D> Model::loadMaterialTextures(
@@ -118,13 +118,13 @@ void Model::Draw(
 	Camera& camera,
 	glm::mat4& transform
 ) {
-	for(Mesh& mesh : meshes) {
+	for(Mesh_3D& mesh : meshes) {
 		mesh.Draw(shader, camera, transform);
 	}
 }
 
 void Model::Delete() {
-	for (Mesh& mesh : meshes) {
+	for (Mesh_3D& mesh : meshes) {
 		mesh.Delete();
 	}
 }

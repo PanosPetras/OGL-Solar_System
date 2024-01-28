@@ -3,12 +3,12 @@
 
 #include <assimp/scene.h>
 
-#include "Mesh.hpp"
+#include "Mesh_3D.hpp"
 
 namespace OGL {
     class Model {
     private:
-        std::vector<Mesh> meshes;
+        std::vector<Mesh_3D> meshes;
         std::string directory;
 
         void loadModel(
@@ -18,7 +18,7 @@ namespace OGL {
             aiNode* node,
             const aiScene* scene
         );
-        Mesh processMesh(
+        Mesh_3D processMesh(
             aiMesh* mesh,
             const aiScene* scene
         );

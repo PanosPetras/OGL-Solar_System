@@ -151,7 +151,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="Init.cpp" />
-    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Mesh_3D.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Texture_2D.cpp" />
@@ -170,7 +170,7 @@
     <ClCompile Include="stb.cpp" />
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="EBO.hpp" />
-    <ClInclude Include="Mesh.hpp" />
+    <ClInclude Include="Mesh_3D.hpp" />
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="Texture_2D.hpp" />
